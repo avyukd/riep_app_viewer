@@ -1,60 +1,30 @@
-<title>videojs</title>
-<head>
-<script>
-var require = require || function() { return { on: function() {}}; };
+ <h1>Responsive Video.js Example (v4.3)</h1>
+  <p></p>
+  <script>
+   videojs.autoSetup();
 
-const ipcRenderer = require('electron').ipcRenderer;
+    videojs('my_video_1').ready(function(){
+      console.log(this.options()); //log all of the default videojs options
+      
+       // Store the video object
+      var myPlayer = this, id = myPlayer.id();
+      // Make up an aspect ratio
+      var aspectRatio = 264/640; 
 
+      function resizeVideoJS(){
+        var width = document.getElementById(id).parentElement.offsetWidth;
+        myPlayer.width(width).height( width * aspectRatio );
 
-var playFile = function(file) {
-  var type = 'video/mp4';
-
-  if (/youtube/.test(file)) {
-    type = 'video/youtube'
-  }
-  if (/m3u8/.test(file)) {
-    type = 'application/x-mpegurl';
-  }
-
-  videojs.players.vid.src({
-    src: file,
-    type: type
-  });
-
-  videojs.players.vid.on('loadedmetadata', function() {
-    videojs.players.vid.play();
-  });
-  //if (!/youtube/.test(file)) {
-    //videojs.players.vid.play();
-  //}
-};
-
-ipcRenderer.on('open-file', playFile);
-</script>
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet">
-<link href="http://vjs.zencdn.net/5.0.0/video-js.css" rel="stylesheet">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
-<script src="http://vjs.zencdn.net/5.0.0/video.js"></script>
-<script src="node_modules/videojs-contrib-hls/dist/videojs.hls.js"></script> 
-<script src="node_modules/videojs-youtube/dist/Youtube.js"></script> 
-
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
-
-  .video-js {
-    width: 100%;
-    height: 100%;
-  }
-</style>
-</head>
-<video id="vid" class="video-js" controls>
-</video>
-
-<script>
-  var player = videojs('vid', {"techOrder":["html5", "youtube"]});
-</script>
+      }
+      
+      // Initialize resizeVideoJS()
+      resizeVideoJS();
+      // Then on resize call resizeVideoJS()
+      window.onresize = resizeVideoJS; 
+    });
+  </script>
+  <video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" 
+  data-setup='{ "asdf": true }' poster="http://video-js.zencoder.com/oceans-clip.png" >
+    <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'>
+    <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm'>
+  </video>
