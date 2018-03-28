@@ -3,7 +3,8 @@
 <script>
 var require = require || function() { return { on: function() {}}; };
 
-var ipc = require('ipc');
+const ipcRenderer = require('electron').ipcRenderer;
+
 
 var playFile = function(file) {
   var type = 'video/mp4';
@@ -28,7 +29,7 @@ var playFile = function(file) {
   //}
 };
 
-ipc.on('open-file', playFile);
+ipcRenderer.on('open-file', playFile);
 </script>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet">
