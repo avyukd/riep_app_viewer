@@ -1,26 +1,45 @@
 {
-  "name": "videojs-app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "bin": {
-    "videojs": "./cli.js"
+  "name": "jplayer",
+  "version": "2.9.2",
+  "description": "The jQuery HTML5 Audio / Video Library. Allows you to create a media player with a consistent interface and experience across all browsers.",
+  "organization": "Happyworm Ltd",
+  "author": {
+    "name": "Mark J Panaghiston",
+    "email": "markp@happyworm.com",
+    "url": "http://happyworm.com/"
   },
-  "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Gary Katsevman <me@gkatsev.com>",
+  "homepage": "http://jplayer.org/",
+  "keywords": [
+    "jquery-plugin",
+    "audio",
+    "video",
+    "media",
+    "player",
+    "jplayer"
+  ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/happyworm/jPlayer.git"
+  },
+  "bugs": "https://github.com/happyworm/jPlayer/issues",
+  "github": "http://github.com/happyworm/jPlayer",
+  "main": "dist/jplayer/jquery.jplayer.js",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
-    "electron-prebuilt": "^0.34.0",
-    "electronify": "^1.0.1",
-    "twitch-get-stream": "^0.3.0",
-    "video.js": "^5.0.0",
-    "videojs-contrib-hls": "^1.0.1-0",
-    "videojs-youtube": "^2.0.0"
+    "jquery": ">1.7.0"
   },
   "devDependencies": {
-    "video.js": "^5.20.5"
+    "flex-sdk": "~4.6.0-0",
+    "grunt": "~0.4.5",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-uglify": "~0.6.0",
+    "grunt-mxmlc": "~0.5.2"
   }
 }

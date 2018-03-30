@@ -1,61 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" />
-<!-- Website Design By: www.happyworm.com -->
-<title>Demo : jPlayer as a video playlist player</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link href="dist/skin/blue.monday/css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="lib/jquery.min.js"></script>
-<script type="text/javascript" src="dist/jplayer/jquery.jplayer.min.js"></script>
-<script type="text/javascript" src="dist/add-on/jplayer.playlist.min.js"></script>
-<script type="text/javascript">
-//<![CDATA[
-$(document).ready(function(){
-
-	new jPlayerPlaylist({
-		jPlayer: "#jquery_jplayer_1",
-		cssSelectorAncestor: "#jp_container_1"
-	}, [
-		{
-			title:"Big Buck Bunny Trailer",
-			artist:"Blender Foundation",
-			free:true,
-			m4v: "C:/Users/Avyuk Dixit/TBOA.mp4",
-		},
-		{
-			title:"Finding Nemo Teaser",
-			artist:"Pixar",
-			m4v: "http://www.jplayer.org/video/m4v/Finding_Nemo_Teaser.m4v",
-			ogv: "http://www.jplayer.org/video/ogv/Finding_Nemo_Teaser.ogv",
-			webmv: "http://www.jplayer.org/video/webm/Finding_Nemo_Teaser.webm",
-			poster: "http://www.jplayer.org/video/poster/Finding_Nemo_Teaser_640x352.png"
-		},
-		{
-			title:"Incredibles Teaser",
-			artist:"Pixar",
-			m4v: "http://www.jplayer.org/video/m4v/Incredibles_Teaser.m4v",
-			ogv: "http://www.jplayer.org/video/ogv/Incredibles_Teaser.ogv",
-			webmv: "http://www.jplayer.org/video/webm/Incredibles_Teaser.webm",
-			poster: "http://www.jplayer.org/video/poster/Incredibles_Teaser_640x272.png"
-		}
-	], {
-		swfPath: "../../dist/jplayer",
-		supplied: "webmv, ogv, m4v",
-		useStateClassSkin: true,
-		autoBlur: false,
-		smoothPlayBar: true,
-		keyEnabled: true
-	});
-
-});
-//]]>
-</script>
-</head>
-<body>
-<div id="jp_container_1" class="jp-video jp-video-270p" role="application" aria-label="media player">
+<div id="{{WRAPPER}}" class="jp-video " role="application" aria-label="media player">
 	<div class="jp-type-playlist">
-		<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+		<div id="{{JPLAYER}}" class="jp-jplayer"></div>
 		<div class="jp-gui">
 			<div class="jp-video-play">
 				<button class="jp-video-play-icon" role="button" tabindex="0">play</button>
@@ -105,6 +50,3 @@ $(document).ready(function(){
 		</div>
 	</div>
 </div>
-</body>
-
-</html>
