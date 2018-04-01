@@ -1,10 +1,9 @@
-// requiring the HTTP interfaces in node 
-var http = require('http'); 
-// create an http server to handle requests and response 
-http.createServer(function (req, res) { 
-// sending a response header of 200 OK 
-res.writeHead(200, {'Content-Type': 'text/plain'}); 
-// print out Hello World 
-res.end('Hello World\n'); 
-// use port 8080 
-}).listen(8800); 
+var express = require('express');
+var app = express();
+app.use(express.static(__dirname + '/public')); //__dir and not _dir
+var port = 8000; // you can use any port
+app.listen(port);
+console.log('server on' + port);
+app.get('/', function (req, res) {
+  res.render('index', {});
+});
